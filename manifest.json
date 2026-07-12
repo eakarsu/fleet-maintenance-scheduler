@@ -1,0 +1,30 @@
+{
+  "id": "fleet-maintenance-scheduler",
+  "title": "Fleet Maintenance Scheduler App",
+  "industry": "Transportation & Logistics",
+  "industryId": "transportation-logistics",
+  "specialization": "Fleet Maintenance Scheduler",
+  "sourcePlatformGroup": "transport-logistics-platform",
+  "sources": [
+    "AIAnalyzetelematics",
+    "AIAutomateroutingmedical",
+    "AIFleetElectrificationPlanner",
+    "AIFleetMaintenanceScheduler"
+  ],
+  "featureCount": 227,
+  "candidateFeatureCount": 297,
+  "eliminatedSimilarFeatures": 70,
+  "evidenceCount": 534,
+  "aiPageCount": 0,
+  "sourceAIPageCount": 0,
+  "featureEvidencePolicy": "Existing source routes, pages, APIs, models, schemas, and navigation only",
+  "optimizationPolicy": "Equivalent feature names are consolidated once per industry and assigned to one canonical app owner",
+  "database": "database.sqlite",
+  "databaseSeed": {
+    "seededProjects": 2,
+    "seededTables": 30,
+    "seededRows": 508
+  },
+  "visibleFeatureCount": 45,
+  "featureVisibilityMode": "seeded-or-ai"
+}
