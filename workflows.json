@@ -1,0 +1,743 @@
+{
+  "version": 1,
+  "appId": "fleet-maintenance-scheduler",
+  "workflows": [
+    {
+      "id": "vehicle-asset-intake",
+      "title": "Vehicle Asset Intake",
+      "description": "Register fleet units, ownership, duty cycle, warranty, and service policy before scheduling maintenance.",
+      "fields": [
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "vehicleType",
+          "label": "Vehicle type",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Passenger",
+            "Light duty",
+            "Medium duty",
+            "Class 8 tractor",
+            "Trailer"
+          ],
+          "default": "Class 8 tractor"
+        },
+        {
+          "key": "vin",
+          "label": "VIN or asset identifier",
+          "type": "text",
+          "required": true,
+          "default": "VIN-DEMO-000117"
+        },
+        {
+          "key": "odometer",
+          "label": "Odometer",
+          "type": "number",
+          "required": true,
+          "default": 284500
+        },
+        {
+          "key": "dutyCycle",
+          "label": "Duty cycle",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Urban delivery",
+            "Regional",
+            "Long haul",
+            "Vocational"
+          ],
+          "default": "Long haul"
+        }
+      ],
+      "states": [
+        "draft",
+        "validated",
+        "active",
+        "retired"
+      ],
+      "transitions": [
+        {
+          "id": "vehicle-asset-intake-validated",
+          "label": "Move to validated",
+          "from": [
+            "draft"
+          ],
+          "to": "validated"
+        },
+        {
+          "id": "vehicle-asset-intake-active",
+          "label": "Move to active",
+          "from": [
+            "validated"
+          ],
+          "to": "active"
+        },
+        {
+          "id": "vehicle-asset-intake-retired",
+          "label": "Move to retired",
+          "from": [
+            "active"
+          ],
+          "to": "retired"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "vehicle-asset-intake-demo",
+          "state": "draft",
+          "unitNumber": "TRK-DEMO-117",
+          "vehicleType": "Class 8 tractor",
+          "vin": "VIN-DEMO-000117",
+          "odometer": 284500,
+          "dutyCycle": "Long haul"
+        }
+      ]
+    },
+    {
+      "id": "telematics-batch-ingestion",
+      "title": "Telematics Batch Ingestion",
+      "description": "Stage OBD, ELD, GPS, and utilization records, review quality, and release accepted data for analysis.",
+      "fields": [
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "adapter",
+          "label": "Provider or adapter",
+          "type": "text",
+          "required": true,
+          "default": "Local telematics fixture"
+        },
+        {
+          "key": "signalTypes",
+          "label": "Signal types",
+          "type": "textarea",
+          "required": true,
+          "default": "engine hours; DTC; location; fuel; idle time"
+        },
+        {
+          "key": "recordCount",
+          "label": "Record count",
+          "type": "number",
+          "required": true,
+          "default": 2880
+        },
+        {
+          "key": "qualityScore",
+          "label": "Quality score",
+          "type": "number",
+          "required": true,
+          "default": 94
+        }
+      ],
+      "states": [
+        "received",
+        "quality_review",
+        "accepted",
+        "rejected"
+      ],
+      "transitions": [
+        {
+          "id": "telematics-batch-ingestion-quality_review",
+          "label": "Move to quality review",
+          "from": [
+            "received"
+          ],
+          "to": "quality_review"
+        },
+        {
+          "id": "telematics-batch-ingestion-accepted",
+          "label": "Move to accepted",
+          "from": [
+            "quality_review"
+          ],
+          "to": "accepted"
+        },
+        {
+          "id": "telematics-batch-ingestion-rejected",
+          "label": "Move to rejected",
+          "from": [
+            "accepted"
+          ],
+          "to": "rejected"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "telematics-batch-ingestion-demo",
+          "state": "received",
+          "unitNumber": "TRK-DEMO-117",
+          "adapter": "Local telematics fixture",
+          "signalTypes": "engine hours; DTC; location; fuel; idle time",
+          "recordCount": 2880,
+          "qualityScore": 94
+        }
+      ]
+    },
+    {
+      "id": "maintenance-risk-analysis",
+      "title": "Maintenance Risk Analysis",
+      "description": "Evaluate diagnostic, mileage, inspection, and repair-history signals and confirm actionable failure risks.",
+      "fields": [
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "failureMode",
+          "label": "Potential failure mode",
+          "type": "text",
+          "required": true,
+          "default": "Diesel particulate filter restriction"
+        },
+        {
+          "key": "riskScore",
+          "label": "Risk score",
+          "type": "number",
+          "required": true,
+          "default": 76
+        },
+        {
+          "key": "evidence",
+          "label": "Evidence",
+          "type": "textarea",
+          "required": true,
+          "default": "Regeneration frequency rose 41% and related DTCs repeated twice."
+        },
+        {
+          "key": "urgency",
+          "label": "Urgency",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Monitor",
+            "Soon",
+            "Immediate"
+          ],
+          "default": "Soon"
+        }
+      ],
+      "states": [
+        "queued",
+        "analyzed",
+        "fleet_review",
+        "confirmed"
+      ],
+      "transitions": [
+        {
+          "id": "maintenance-risk-analysis-analyzed",
+          "label": "Move to analyzed",
+          "from": [
+            "queued"
+          ],
+          "to": "analyzed"
+        },
+        {
+          "id": "maintenance-risk-analysis-fleet_review",
+          "label": "Move to fleet review",
+          "from": [
+            "analyzed"
+          ],
+          "to": "fleet_review"
+        },
+        {
+          "id": "maintenance-risk-analysis-confirmed",
+          "label": "Move to confirmed",
+          "from": [
+            "fleet_review"
+          ],
+          "to": "confirmed"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "maintenance-risk-analysis-demo",
+          "state": "queued",
+          "unitNumber": "TRK-DEMO-117",
+          "failureMode": "Diesel particulate filter restriction",
+          "riskScore": 76,
+          "evidence": "Regeneration frequency rose 41% and related DTCs repeated twice.",
+          "urgency": "Soon"
+        }
+      ]
+    },
+    {
+      "id": "service-window-planning",
+      "title": "Service Window Planning",
+      "description": "Balance risk, route commitments, shop capacity, and parts availability into an approved service slot.",
+      "fields": [
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "recommendedDate",
+          "label": "Recommended service date",
+          "type": "date",
+          "required": true,
+          "default": "2026-07-20"
+        },
+        {
+          "key": "estimatedHours",
+          "label": "Estimated labor hours",
+          "type": "number",
+          "required": true,
+          "default": 5.5
+        },
+        {
+          "key": "routeConstraint",
+          "label": "Route constraint",
+          "type": "textarea",
+          "required": true,
+          "default": "Unit returns to Newark terminal after 18:00 on July 19."
+        },
+        {
+          "key": "shop",
+          "label": "Preferred shop",
+          "type": "text",
+          "required": true,
+          "default": "Demo Newark Shop"
+        }
+      ],
+      "states": [
+        "proposed",
+        "dispatch_review",
+        "approved",
+        "scheduled"
+      ],
+      "transitions": [
+        {
+          "id": "service-window-planning-dispatch_review",
+          "label": "Move to dispatch review",
+          "from": [
+            "proposed"
+          ],
+          "to": "dispatch_review"
+        },
+        {
+          "id": "service-window-planning-approved",
+          "label": "Move to approved",
+          "from": [
+            "dispatch_review"
+          ],
+          "to": "approved"
+        },
+        {
+          "id": "service-window-planning-scheduled",
+          "label": "Move to scheduled",
+          "from": [
+            "approved"
+          ],
+          "to": "scheduled"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "service-window-planning-demo",
+          "state": "proposed",
+          "unitNumber": "TRK-DEMO-117",
+          "recommendedDate": "2026-07-20",
+          "estimatedHours": 5.5,
+          "routeConstraint": "Unit returns to Newark terminal after 18:00 on July 19.",
+          "shop": "Demo Newark Shop"
+        }
+      ]
+    },
+    {
+      "id": "work-order-and-parts",
+      "title": "Work Order and Parts",
+      "description": "Prepare repair scope, labor, checklist, and parts reservations with explicit CMMS and supplier status.",
+      "fields": [
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "repairScope",
+          "label": "Repair scope",
+          "type": "textarea",
+          "required": true,
+          "default": "Inspect DPF pressure sensors; clean filter; verify regeneration cycle."
+        },
+        {
+          "key": "parts",
+          "label": "Parts and consumables",
+          "type": "textarea",
+          "required": true,
+          "default": "Sensor kit; clamps; cleaning supplies"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Routine",
+            "Priority",
+            "Urgent"
+          ],
+          "default": "Priority"
+        },
+        {
+          "key": "externalStatus",
+          "label": "External system status",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Not configured",
+            "Needs credentials",
+            "Test ready",
+            "Blocked"
+          ],
+          "default": "Not configured"
+        }
+      ],
+      "states": [
+        "draft",
+        "authorized",
+        "in_progress",
+        "completed"
+      ],
+      "transitions": [
+        {
+          "id": "work-order-and-parts-authorized",
+          "label": "Move to authorized",
+          "from": [
+            "draft"
+          ],
+          "to": "authorized"
+        },
+        {
+          "id": "work-order-and-parts-in_progress",
+          "label": "Move to in progress",
+          "from": [
+            "authorized"
+          ],
+          "to": "in_progress"
+        },
+        {
+          "id": "work-order-and-parts-completed",
+          "label": "Move to completed",
+          "from": [
+            "in_progress"
+          ],
+          "to": "completed"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "work-order-and-parts-demo",
+          "state": "draft",
+          "unitNumber": "TRK-DEMO-117",
+          "repairScope": "Inspect DPF pressure sensors; clean filter; verify regeneration cycle.",
+          "parts": "Sensor kit; clamps; cleaning supplies",
+          "priority": "Priority",
+          "externalStatus": "Not configured"
+        }
+      ]
+    },
+    {
+      "id": "driver-safety-review",
+      "title": "Driver Safety Review",
+      "description": "Review harsh-event, inspection, hours, and coaching evidence while preserving human accountability.",
+      "fields": [
+        {
+          "key": "driverReference",
+          "label": "Driver reference",
+          "type": "text",
+          "required": true,
+          "default": "DRV-DEMO-44"
+        },
+        {
+          "key": "unitNumber",
+          "label": "Unit number",
+          "type": "text",
+          "required": true,
+          "default": "TRK-DEMO-117"
+        },
+        {
+          "key": "eventType",
+          "label": "Event type",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Harsh braking",
+            "Speeding",
+            "Hours exception",
+            "Inspection defect"
+          ],
+          "default": "Harsh braking"
+        },
+        {
+          "key": "eventCount",
+          "label": "Event count",
+          "type": "number",
+          "required": true,
+          "default": 4
+        },
+        {
+          "key": "context",
+          "label": "Context",
+          "type": "textarea",
+          "required": true,
+          "default": "Events occurred during severe-weather urban deliveries."
+        }
+      ],
+      "states": [
+        "flagged",
+        "supervisor_review",
+        "coaching_planned",
+        "closed"
+      ],
+      "transitions": [
+        {
+          "id": "driver-safety-review-supervisor_review",
+          "label": "Move to supervisor review",
+          "from": [
+            "flagged"
+          ],
+          "to": "supervisor_review"
+        },
+        {
+          "id": "driver-safety-review-coaching_planned",
+          "label": "Move to coaching planned",
+          "from": [
+            "supervisor_review"
+          ],
+          "to": "coaching_planned"
+        },
+        {
+          "id": "driver-safety-review-closed",
+          "label": "Move to closed",
+          "from": [
+            "coaching_planned"
+          ],
+          "to": "closed"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "driver-safety-review-demo",
+          "state": "flagged",
+          "driverReference": "DRV-DEMO-44",
+          "unitNumber": "TRK-DEMO-117",
+          "eventType": "Harsh braking",
+          "eventCount": 4,
+          "context": "Events occurred during severe-weather urban deliveries."
+        }
+      ]
+    },
+    {
+      "id": "electrification-charging-plan",
+      "title": "Electrification and Charging Plan",
+      "description": "Compare vehicle replacement candidates, route energy demand, charging capacity, incentives, and total cost.",
+      "fields": [
+        {
+          "key": "fleetSegment",
+          "label": "Fleet segment",
+          "type": "text",
+          "required": true,
+          "default": "Urban delivery vans"
+        },
+        {
+          "key": "vehicles",
+          "label": "Candidate vehicles",
+          "type": "number",
+          "required": true,
+          "default": 24
+        },
+        {
+          "key": "dailyMiles",
+          "label": "Average daily miles",
+          "type": "number",
+          "required": true,
+          "default": 112
+        },
+        {
+          "key": "estimatedTcoSavings",
+          "label": "Estimated five-year TCO savings",
+          "type": "number",
+          "required": true,
+          "default": 318000
+        },
+        {
+          "key": "chargingConstraint",
+          "label": "Charging constraint",
+          "type": "textarea",
+          "required": true,
+          "default": "Depot transformer capacity requires utility review."
+        }
+      ],
+      "states": [
+        "modeled",
+        "operations_review",
+        "approved",
+        "planned"
+      ],
+      "transitions": [
+        {
+          "id": "electrification-charging-plan-operations_review",
+          "label": "Move to operations review",
+          "from": [
+            "modeled"
+          ],
+          "to": "operations_review"
+        },
+        {
+          "id": "electrification-charging-plan-approved",
+          "label": "Move to approved",
+          "from": [
+            "operations_review"
+          ],
+          "to": "approved"
+        },
+        {
+          "id": "electrification-charging-plan-planned",
+          "label": "Move to planned",
+          "from": [
+            "approved"
+          ],
+          "to": "planned"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "electrification-charging-plan-demo",
+          "state": "modeled",
+          "fleetSegment": "Urban delivery vans",
+          "vehicles": 24,
+          "dailyMiles": 112,
+          "estimatedTcoSavings": 318000,
+          "chargingConstraint": "Depot transformer capacity requires utility review."
+        }
+      ]
+    },
+    {
+      "id": "fleet-reporting-integration-readiness",
+      "title": "Fleet Reporting and Integration Readiness",
+      "description": "Publish a local fleet health report and verify telematics, CMMS, dispatch, and supplier adapter readiness.",
+      "fields": [
+        {
+          "key": "integrationType",
+          "label": "Integration type",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Telematics",
+            "CMMS",
+            "Dispatch",
+            "Supplier"
+          ],
+          "default": "CMMS"
+        },
+        {
+          "key": "provider",
+          "label": "Provider or adapter",
+          "type": "text",
+          "required": true,
+          "default": "Local fleet fixture"
+        },
+        {
+          "key": "environment",
+          "label": "Environment",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Local fixture",
+            "Sandbox configuration",
+            "Production configuration"
+          ],
+          "default": "Local fixture"
+        },
+        {
+          "key": "credentialStatus",
+          "label": "Credential status",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Not required for fixture",
+            "Missing",
+            "Stored externally"
+          ],
+          "default": "Not required for fixture"
+        },
+        {
+          "key": "testResult",
+          "label": "Test result",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Not run",
+            "Passed with fixture",
+            "Failed",
+            "Blocked"
+          ],
+          "default": "Not run"
+        }
+      ],
+      "states": [
+        "inventoried",
+        "mapped",
+        "test_ready",
+        "verified"
+      ],
+      "transitions": [
+        {
+          "id": "fleet-reporting-integration-readiness-mapped",
+          "label": "Move to mapped",
+          "from": [
+            "inventoried"
+          ],
+          "to": "mapped"
+        },
+        {
+          "id": "fleet-reporting-integration-readiness-test_ready",
+          "label": "Move to test ready",
+          "from": [
+            "mapped"
+          ],
+          "to": "test_ready"
+        },
+        {
+          "id": "fleet-reporting-integration-readiness-verified",
+          "label": "Move to verified",
+          "from": [
+            "test_ready"
+          ],
+          "to": "verified"
+        }
+      ],
+      "seeds": [
+        {
+          "id": "fleet-reporting-integration-readiness-demo",
+          "state": "inventoried",
+          "integrationType": "CMMS",
+          "provider": "Local fleet fixture",
+          "environment": "Local fixture",
+          "credentialStatus": "Not required for fixture",
+          "testResult": "Not run"
+        }
+      ]
+    }
+  ]
+}
