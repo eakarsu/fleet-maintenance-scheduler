@@ -238,6 +238,32 @@
     ]
   },
   {
+    "name": "AI Driver Behavior",
+    "canonicalKey": "ai behavior driver",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/driver-analysis"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/driver-analysis",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "AI Family Portal",
     "canonicalKey": "ai family portal",
     "aliases": [],
@@ -264,6 +290,32 @@
     ]
   },
   {
+    "name": "AI Fleet Insights",
+    "canonicalKey": "ai fleet insight",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/fleet-insights"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/fleet-insights",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "AI Forecast",
     "canonicalKey": "ai forecast",
     "aliases": [],
@@ -285,6 +337,32 @@
         "sourceProject": "AIFleetElectrificationPlanner",
         "path": "backend/src/routes/energyForecast.js:51",
         "route": "/ai-forecast",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "AI Fuel Analysis",
+    "canonicalKey": "ai analysis fuel",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/fuel-analysis"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/fuel-analysis",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
     ]
@@ -628,6 +706,32 @@
     ]
   },
   {
+    "name": "AI Predictive Maintenance",
+    "canonicalKey": "ai maintenance predictive",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/predictive-maintenance"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/predictive-maintenance",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "AI Recommend",
     "canonicalKey": "ai recommend",
     "aliases": [],
@@ -682,6 +786,32 @@
         "sourceProject": "AIAutomateroutingmedical",
         "path": "frontend/src/pages/AIRiskAssessment.jsx",
         "route": "/AIRiskAssessment",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "AI Route Optimization",
+    "canonicalKey": "ai optimization route",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/route-optimization"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/route-optimization",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
     ]
@@ -1657,6 +1787,32 @@
     ]
   },
   {
+    "name": "Cost Allocation Optimizer",
+    "canonicalKey": "allocation cost optimizer",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/cost-allocation"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/cost-allocation",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Cost Optimize",
     "canonicalKey": "cost optimize",
     "aliases": [],
@@ -1735,6 +1891,32 @@
         "sourceProject": "AIAnalyzetelematics",
         "path": "frontend/src/pages/Dashboard.js:27",
         "route": "/analytics/cost-per-mile",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "Cost Per Mile Intelligence Report",
+    "canonicalKey": "cost intelligence mile per report",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/cost-per-mile-report"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/cost-per-mile-report",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
     ]
@@ -2057,6 +2239,32 @@
     ]
   },
   {
+    "name": "Driver Burnout Predictor",
+    "canonicalKey": "burnout driver predictor",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/driver-burnout"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/driver-burnout",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Driver Coaching",
     "canonicalKey": "coaching driver",
     "aliases": [],
@@ -2100,6 +2308,32 @@
         "kind": "page",
         "sourceProject": "AIAnalyzetelematics",
         "path": "frontend/src/pages/Dashboard.js:39",
+        "route": "/ai/driver-coaching",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "Driver Coaching Bot",
+    "canonicalKey": "bot coaching driver",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/driver-coaching"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
         "route": "/ai/driver-coaching",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
@@ -2259,6 +2493,32 @@
     ]
   },
   {
+    "name": "Driver Wellness Monitor",
+    "canonicalKey": "driver monitor wellness",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/driver-wellness"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/driver-wellness",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Drivers",
     "canonicalKey": "driver",
     "aliases": [
@@ -2373,6 +2633,32 @@
         "sourceProject": "AIFleetMaintenanceScheduler",
         "path": "frontend/src/components/Dashboard.jsx:62",
         "route": "/drivers",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "Dynamic Route Recommendation",
+    "canonicalKey": "dynamic recommendation route",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/route-recommendation"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/route-recommendation",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
     ]
@@ -2644,6 +2930,32 @@
     ]
   },
   {
+    "name": "Fleet Carbon Tracker",
+    "canonicalKey": "carbon fleet tracker",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/carbon-tracker"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/carbon-tracker",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Fleet Complete Sync",
     "canonicalKey": "complete fleet sync",
     "aliases": [],
@@ -2808,9 +3120,11 @@
     "canonicalKey": "fleet report summary",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api"
     ],
     "routes": [
+      "/ai/fleet-summary",
       "/fleet-summary-report"
     ],
     "sourceProjects": [
@@ -2820,6 +3134,13 @@
       "transportation-logistics/fleet-maintenance-scheduler"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/fleet-summary",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      },
       {
         "kind": "api",
         "sourceProject": "AIAnalyzetelematics",
@@ -3069,6 +3390,32 @@
     ]
   },
   {
+    "name": "Fuel Fraud Detection",
+    "canonicalKey": "detection fraud fuel",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/fuel-fraud"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/fuel-fraud",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Fuel Waste",
     "canonicalKey": "fuel waste",
     "aliases": [],
@@ -3112,6 +3459,32 @@
         "kind": "page",
         "sourceProject": "AIAnalyzetelematics",
         "path": "frontend/src/pages/Dashboard.js:40",
+        "route": "/ai/fuel-waste",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "Fuel Waste Detector",
+    "canonicalKey": "detector fuel waste",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/fuel-waste"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
         "route": "/ai/fuel-waste",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
@@ -5774,6 +6147,32 @@
     ]
   },
   {
+    "name": "Partner Load Balancing",
+    "canonicalKey": "balancing load partner",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/load-balancer"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/load-balancer",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
     "name": "Parts Order Predict",
     "canonicalKey": "order part predict",
     "aliases": [],
@@ -6099,6 +6498,32 @@
         "sourceProject": "AIAutomateroutingmedical",
         "path": "frontend/src/components/Sidebar.jsx:40",
         "route": "/ai/preauth",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      }
+    ]
+  },
+  {
+    "name": "Predictive Breakdown Prevention",
+    "canonicalKey": "breakdown predictive prevention",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/ai/breakdown-prevention"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "frontend/src/App.js",
+        "route": "/ai/breakdown-prevention",
         "originApp": "transportation-logistics/fleet-maintenance-scheduler"
       }
     ]

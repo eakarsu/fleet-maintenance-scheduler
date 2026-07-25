@@ -3,7 +3,7 @@
 Industry: **Transportation & Logistics**  
 Specialization: **Fleet Maintenance Scheduler**
 
-This standalone application consolidates source-backed capabilities into 227 optimized features, including 15 visible data-backed or AI-enabled views. Its public demo SQLite database contains 0 sanitized source rows across 0 imported tables and 120 operational workflow records.
+This standalone application consolidates source-backed capabilities into 243 optimized features, including 17 visible data-backed or AI-enabled views. Its public demo SQLite database contains 0 sanitized source rows across 0 imported tables and 120 operational workflow records.
 
 ## Run locally
 

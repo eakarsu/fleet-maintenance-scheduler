@@ -11,12 +11,12 @@
     "AIFleetElectrificationPlanner",
     "AIFleetMaintenanceScheduler"
   ],
-  "featureCount": 227,
-  "candidateFeatureCount": 304,
+  "featureCount": 243,
+  "candidateFeatureCount": 320,
   "eliminatedSimilarFeatures": 77,
-  "evidenceCount": 559,
-  "aiPageCount": 15,
-  "sourceAIPageCount": 15,
+  "evidenceCount": 576,
+  "aiPageCount": 17,
+  "sourceAIPageCount": 17,
   "featureEvidencePolicy": "Existing source routes, pages, APIs, models, schemas, and navigation only",
   "optimizationPolicy": "Equivalent feature names are consolidated once per industry and assigned to one canonical app owner",
   "database": "database.sqlite",
@@ -25,6 +25,6 @@
     "seededTables": 0,
     "seededRows": 0
   },
-  "visibleFeatureCount": 15,
+  "visibleFeatureCount": 17,
   "featureVisibilityMode": "seeded-or-ai"
 }
