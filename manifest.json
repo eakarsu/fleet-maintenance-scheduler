@@ -12,19 +12,19 @@
     "AIFleetMaintenanceScheduler"
   ],
   "featureCount": 227,
-  "candidateFeatureCount": 297,
-  "eliminatedSimilarFeatures": 70,
-  "evidenceCount": 534,
-  "aiPageCount": 0,
-  "sourceAIPageCount": 0,
+  "candidateFeatureCount": 304,
+  "eliminatedSimilarFeatures": 77,
+  "evidenceCount": 559,
+  "aiPageCount": 15,
+  "sourceAIPageCount": 15,
   "featureEvidencePolicy": "Existing source routes, pages, APIs, models, schemas, and navigation only",
   "optimizationPolicy": "Equivalent feature names are consolidated once per industry and assigned to one canonical app owner",
   "database": "database.sqlite",
   "databaseSeed": {
-    "seededProjects": 2,
-    "seededTables": 30,
-    "seededRows": 508
+    "seededProjects": 0,
+    "seededTables": 0,
+    "seededRows": 0
   },
-  "visibleFeatureCount": 45,
+  "visibleFeatureCount": 15,
   "featureVisibilityMode": "seeded-or-ai"
 }
